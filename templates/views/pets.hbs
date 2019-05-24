@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+
+<html>
+<head>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<title>{{title}}</title>
+
+
+<body>
+
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a id="btn" class="dropdown-item" href="#">Completed</a>
+    <a id="btnCats"class="dropdown-item" href="#">Cats</a>
+    <a id="btnAllPets"class="dropdown-item" href="#">All</a>
+  </div>
+</div>      
+    {{#each list}}
+   <div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{this.description}}</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">{{this.completed}}</a>
+  </div>
+</div>
+ {{/each}}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+
+    $('#btn').on('click', function(){
+        console.log('safjdklnhkljhgjklhgjkh')
+        $.get('/tasks/completed', function(data){
+          window.location.replace('/tasks/completed')
+        })
+    })
+    $('#btnCats').on('click', function(){
+        console.log('safjdklnhkljhgjklhgjkh')
+        $.get('/tasks/uncompleted', function(data){
+          window.location.replace('/tasks/uncompleted')
+        })
+    })
+
+    $('#btnAllPets').on('click', function(){
+        console.log('safjdklnhkljhgjklhgjkh')
+        $.get('/allTasks', function(data){
+          window.location.replace('/allTasks')
+        })
+    })
+    
+    
+
+</script>
+
+
+
+
+</body>
+
+
+
+</head>
+   
+</html>
